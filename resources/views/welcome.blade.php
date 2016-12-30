@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -63,6 +63,7 @@
                 margin-bottom: 30px;
             }
         </style>
+        <script src="js/app.js"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -82,14 +83,31 @@
                     Laravel
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <input id="send" type="text" />
+
+                <div id="message">
                 </div>
+            </div>
+            <div>
             </div>
         </div>
     </body>
 </html>
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script>
+    $('#send').on("keyup", function(e) {
+        code = (e.keyCode ? e.keyCode : e.which);
+        if (code == 13)
+        {
+            $.ajax({
+                url: '/sendMsg',
+                data: {'msg': $(this).val()},
+                type:"get",
+
+                success: function(msg){
+                    console.log(msg);
+                }
+            });
+        }
+    });
+</script>
