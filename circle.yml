@@ -9,4 +9,4 @@ test:
 
 dependencies:
   post:
-    - php artisan key:generate
+    - sudo php artisan key:generate
