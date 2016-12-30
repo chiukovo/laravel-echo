@@ -1,7 +1,7 @@
 # circle.yml
 machine:
   php:
-    version: 7.0.8
+    version: 7.0.7
 
 test:
   override:
