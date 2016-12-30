@@ -1,0 +1,8 @@
+# circle.yml
+machine:
+  php:
+    version: 7.0.8
+
+test:
+  override:
+    - phpunit
