@@ -6,3 +6,7 @@ machine:
 test:
   override:
     - phpunit
+
+dependencies:
+  post:
+    - php artisan key:generate
